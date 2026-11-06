@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adarsh Rai | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+:root {
+  --blue: #0047ab;
+  --blue-dark: #00337d;
+  --orange: #ff6b4a;
+  --bg: #f5f5f5;
+  --text: #222;
+  --white: #fff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 100%; }
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; }
+
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(2rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-4rem); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+
+@keyframes colorChange {
+  0%   { color: var(--orange); }
+  33%  { color: var(--blue); }
+  66%  { color: #8e24aa; }
+  100% { color: var(--orange); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-0.6rem); }
+}
+
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;      
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 5%;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.logo { font-size: 1.2rem; font-weight: 700; }
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav-links a {
+  position: relative;
+  font-size: 0.85rem;
+  padding-bottom: 0.2rem;
+  transition: color 0.3s ease;
+}
+
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 0.12rem;
+  background: var(--orange);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: #ffd2c7; }
+.nav-links a:hover::after { width: 100%; }
+
+.hero {
+  display: flex;
+  flex-direction: column-reverse;   
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 60vh;
+  padding: 2rem 5%;
+}
+
+
+.hero { flex-direction: column; }
+
+.hero-text { animation: slideInLeft 0.9s ease both; text-align: center; }
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.role {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0.5rem 0 1rem;
+  animation: colorChange 4s linear infinite;
+}
+
+.hero-text p { font-size: 0.95rem; }
+
+.hero-image img {
+  width: 14rem;
+  height: 14rem;
+  max-width: 70vw;
+  max-height: 70vw;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 71, 171, 0.25);
+  animation: float 4s ease-in-out infinite;
+}
+
+.section {
+  padding: 2rem 5%;
+  animation: fadeInUp 0.8s ease both;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.about-text {
+  font-size: 0.9rem;
+  max-width: 70rem;
+}
+
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;     
+}
+
+.card {
+  background: var(--white);
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.skill-card {
+  background: var(--blue);
+  color: var(--white);
+  text-align: center;
+  padding: 1.2rem 1rem;
+}
+
+.skill-card h3 { font-size: 1rem; }
+.skill-card p  { font-size: 0.8rem; opacity: 0.85; }
+
+.project-card {
+  padding: 1.5rem;
+  text-align: center;
+  min-height: 9rem;
+  border: 0.06rem solid #e3e3e3;
+}
+
+.project-card h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+.project-card p  { font-size: 0.85rem; }
+
+.card:hover {
+  transform: translateY(-0.4rem) scale(1.03);
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+.skill-card:hover { background: var(--blue-dark); }
+.project-card:hover { border-color: var(--orange); }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+  max-width: 24rem;
+  margin: 0 auto;
+  padding: 1.2rem;
+  background: var(--white);
+  border-radius: 0.5rem;
+}
+
+.contact-form label { font-size: 0.8rem; font-weight: 500; }
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  border: 0.1rem solid var(--blue);
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 74, 0.25);
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--white);
+  background: var(--blue);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--orange);
+  transform: translateY(-0.2rem) scale(1.05);
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:active { transform: scale(0.97); }
+
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  padding: 1rem 5%;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 0.8rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-links a { transition: color 0.3s ease; }
+.footer-links a:hover { color: var(--orange); }
+
+.back-to-top {
+  display: block;
+  width: fit-content;
+  margin: 1.5rem 5% 1.5rem auto;
+  font-size: 0.75rem;
+  padding: 0.5rem 0.8rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .header { flex-direction: row; justify-content: space-between; padding: 0.8rem 4%; }
+  .nav-links { gap: 1.5rem; }
+
+  .hero-text h1 { font-size: 3rem; }
+  .role { font-size: 2.8rem; }
+  .hero-image img { width: 16rem; height: 16rem; }
+
+  .skills-grid   { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .footer { flex-direction: row; justify-content: space-between; }
+}
+
+@media (min-width: 992px) {
+  .header, .hero, .section { padding-left: 6%; padding-right: 6%; }
+
+
+  .hero { flex-direction: row; min-height: 70vh; }
+  .hero-text { text-align: left; flex: 1; }
+  .hero-text h1 { font-size: 3.5rem; }
+  .role { font-size: 3.4rem; }
+  .hero-text p { font-size: 1rem; }
+  .hero-image img { width: 22rem; height: 22rem; max-width: 30vw; max-height: 30vw; }
+
+  .about-text { font-size: 1rem; }
+
+  .skills-grid   { grid-template-columns: repeat(3, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); max-width: 60rem; margin: 0 auto; }
+}
+
+  </style>
+</head>
+<body id="top">
+
+
+  <header class="header">
+    <a href="#top" class="logo">My Portfolio</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Hi, I am Adarsh</h1>
+        <h2 class="role">Full Stack Developer</h2>
+        <p>Building clean, responsive websites and growing into full stack development.</p>
+      </div>
+      <div class="hero-image">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiB4bWxuczpjMnBhPSJodHRwOi8vYzJwYS5vcmcvbWFuaWZlc3QiPjxtZXRhZGF0YT48YzJwYTptYW5pZmVzdD5BQUFXZ21wMWJXSUFBQUFlYW5WdFpHTXljR0VBRVFBUWdBQUFxZ0E0bTNFRFl6SndZUUFBQUJaY2FuVnRZZ0FBQUVkcWRXMWtZekp0WVFBUkFCQ0FBQUNxQURpYmNRTjFjbTQ2WXpKd1lUcGlZVFJrWVRZNVl5MWlPREkxTFRRek5ESXRZalF4TUMweFpUTm1aVGt6T0RneU1Ua0FBQUFEbDJwMWJXSUFBQUFwYW5WdFpHTXlZWE1BRVFBUWdBQUFxZ0E0bTNFRFl6SndZUzVoYzNObGNuUnBiMjV6QUFBQUFMeHFkVzFpQUFBQVJHcDFiV1JqWW05eUFCRUFFSUFBQUtvQU9KdHhFMk15Y0dFdWFXNW5jbVZrYVdWdWRDNTJNd0FBQUFBWVl6SnphSEIvTm5yZXVuUmdyR2EwK1d6OUhSMEFBQUJ3WTJKdmNxTnBaR002Wm05eWJXRjBiV2x0WVdkbEwzTjJaeXQ0Yld4cWFXNXpkR0Z1WTJWSlJIZ3NlRzF3T21scFpEbzNNbVprWTJReE5TMDBNRGt6TFRReU1HRXRPV0UwWXkxa05ESTBNekkzWkdabE56RnNjbVZzWVhScGIyNXphR2x3YUhCaGNtVnVkRTltQUFBQjRtcDFiV0lBQUFCQmFuVnRaR05pYjNJQUVRQVFnQUFBcWdBNG0zRVRZekp3WVM1aFkzUnBiMjV6TG5ZeUFBQUFBQmhqTW5ObzQybzE0eVVMSzdaSm02OEd5Ly9RREFBQUFabGpZbTl5b21kaFkzUnBiMjV6Z3FKbVlXTjBhVzl1YTJNeWNHRXViM0JsYm1Wa2FuQmhjbUZ0WlhSbGNuT2hhMmx1WjNKbFpHbGxiblJ6Z2FKamRYSnNlQzF6Wld4bUkycDFiV0ptUFdNeWNHRXVZWE56WlhKMGFXOXVjeTlqTW5CaExtbHVaM0psWkdsbGJuUXVkak5rYUdGemFGZ2c4MHR5WENoRkoyOWNPUmFuN3RvVmJ4UEZiLzJGZEtWKzFXQkV2M1JISFJDa1ptRmpkR2x2Ym5nZFkyOXRMbUZ1ZEdoeWIzQnBZeTVqYkdGMVpHVXVjSEp2ZG1sa1pXUnFjR0Z5WVcxbGRHVnljNkY0SDJOdmJTNWhiblJvY205d2FXTXViM0pwWjJsdUxXTnZibVpwWkdWdVkyVm5kVzVyYm05M2JtdGtaWE5qY21sd2RHbHZibmhtUTJ4aGRXUmxJSEJ5YjNacFpHVmtJSFJvYVhNZ1ptbHNaU0JoZENCMGFHVWdjbVZ4ZFdWemRDQnZaaUJoSUhWelpYSWdZVzVrSUcxaGVTQm9ZWFpsSUdOeVpXRjBaV1FnYjNJZ2JXOWthV1pwWldRZ2RHaGxJR1pwYkdVZ1kyOXVkR1Z1ZEhNdWJYTnZablIzWVhKbFFXZGxiblNoWkc1aGJXVm1RMnhoZFdSbGNtRnNiRUZqZEdsdmJuTkpibU5zZFdSbFpQVUFBQURJYW5WdFlnQUFBRUJxZFcxa1kySnZjZ0FSQUJDQUFBQ3FBRGliY1JOak1uQmhMbWhoYzJndVpHRjBZUUFBQUFBWVl6SnphS1JMeXZoUVo4cG1UUitnaGdEVEtoa0FBQUNBWTJKdmNxVmpZV3huWm5Ob1lUSTFObU53WVdSTkFBQUFBQUFBQUFBQUFBQUFBR1JvWVhOb1dDQkRVRTFtZFoydGx6OHdwa2pGTmFVWlN5K2Z4ZUR3dEVCZ2xyUUdkSXJCeW1SdVlXMWxibXAxYldKbUlHMWhibWxtWlhOMGFtVjRZMngxYzJsdmJuT0JvbVZ6ZEdGeWRCaDlabXhsYm1kMGFCa2VCQUFBQWo1cWRXMWlBQUFBSjJwMWJXUmpNbU5zQUJFQUVJQUFBS29BT0p0eEEyTXljR0V1WTJ4aGFXMHVkaklBQUFBQ0QyTmliM0tsWTJGc1oyWnphR0V5TlRacGMybG5ibUYwZFhKbGVFMXpaV3htSTJwMWJXSm1QUzlqTW5CaEwzVnlianBqTW5CaE9tSmhOR1JoTmpsakxXSTRNalV0TkRNME1pMWlOREV3TFRGbE0yWmxPVE00T0RJeE9TOWpNbkJoTG5OcFoyNWhkSFZ5WldwcGJuTjBZVzVqWlVsRWVDeDRiWEE2YVdsa09tWTBOVGMxTkRneExXTmtOakl0TkdGa1lTMDROMk5qTFRKbE56UTBPR0prTldJd09ISmpjbVZoZEdWa1gyRnpjMlZ5ZEdsdmJuT0RvbU4xY214NExYTmxiR1lqYW5WdFltWTlZekp3WVM1aGMzTmxjblJwYjI1ekwyTXljR0V1YVc1bmNtVmthV1Z1ZEM1Mk0yUm9ZWE5vV0NEelMzSmNLRVVuYjF3NUZxZnUyaFZ2RThWdi9ZVjBwWDdWWUVTL2RFY2RFS0pqZFhKc2VDcHpaV3htSTJwMWJXSm1QV015Y0dFdVlYTnpaWEowYVc5dWN5OWpNbkJoTG1GamRHbHZibk11ZGpKa2FHRnphRmdndlRzYXJvaWFCUldiUWU3SzlxMENIbkVkLzdCdlZnOEtjNTF0TG11WW5UK2lZM1Z5YkhncGMyVnNaaU5xZFcxaVpqMWpNbkJoTG1GemMyVnlkR2x2Ym5Ndll6SndZUzVvWVhOb0xtUmhkR0ZrYUdGemFGZ2dwWHl2eEtRbStZcFR6Qmt4ZUxLVTA2MXc4REQzM0czSDRrVXdOeW4xdmpKMFkyeGhhVzFmWjJWdVpYSmhkRzl5WDJsdVptK2paRzVoYldWdlFXNTBhSEp2Y0dsaklFWnBiR1Z6WjNabGNuTnBiMjVsTVM0d0xqQnJjM0JsWTFabGNuTnBiMjVsTWk0MExqQUFBQkE0YW5WdFlnQUFBQ2hxZFcxa1l6Smpjd0FSQUJDQUFBQ3FBRGliY1FOak1uQmhMbk5wWjI1aGRIVnlaUUFBQUJBSVkySnZjdEtFV1FJU29nRW1HQ0ZaQWdvd2dnSUdNSUlCamFBREFnRUNBaFJBNWFBSzdzSTUwTDY0Zy9vR1FnVTlaMVVUQURBS0JnZ3Foa2pPUFFRREF6QkpNUmN3RlFZRFZRUUtFdzVCYm5Sb2NtOXdhV01zSUZCQ1F6RXVNQ3dHQTFVRUF4TWxRVzUwYUhKdmNHbGpJRU52Ym5SbGJuUWdRM0psWkdWdWRHbGhiSE1nVW05dmRDQkRRVEFlRncweU5qQTRNRGN4T0RRek5UWmFGdzB5T0RBNE1EWXhPVFF6TlRaYU1FUXhGekFWQmdOVkJBb1REa0Z1ZEdoeWIzQnBZeXdnVUVKRE1Ta3dKd1lEVlFRREV5QkJiblJvY205d2FXTWdRMnhoZFdSbElFTnZiblJsYm5RZ1UybG5ibWx1WnpCWk1CTUdCeXFHU000OUFnRUdDQ3FHU000OUF3RUhBMElBQkpoNkNtdkxVQmdGRk5VMHZVS2xPVnRFNmRqZDE3TDVTdXdYMExlbUZpc0JNM2RrZC8zY3lqeEZBM1FvNVM0NmZYMC9paFkwVlo3bWZiOUtGNzAzdDVPaldEQldNQTRHQTFVZER3RUIvd1FFQXdJSGdEQVZCZ05WSFNVRURqQU1CZ29yQmdFRUFZUG9YZ0lCTUF3R0ExVWRFd0VCL3dRQ01BQXdId1lEVlIwakJCZ3dGb0FVemxIaUJJRk9aRnNqK09QRXo1bytuTUhYWE1Jd0NnWUlLb1pJemowRUF3TURad0F3WkFJd01YTWRGSjRCZXRMTFZZN09SdUU5bm9xYmJBWk9abi9hQXJYeVR3RkFaZktyUHp4RjJ2UG9KTmYxK1VDZGcxWEdBakJ3WDF6ZDlXR3FZa3FtTDVTRnF3MVF5U2pyMXpKZnBKTTkrMXJkRHdTUExNT1BPakt1aVhqb1UvcFVVZUc5UndtaFkzQmhaRmtObmdBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFQWllRTVdmNUFYUVBFemVMK3NvOFUwc2daYkZWWS9FSTJPeXV6NE5pM1RWbG1yS1NNajJBbExKVFVlWFRXdGtjc1pmM1hKVUZXcUxueUQzR3UyOTJSem54Vk09PC9jMnBhOm1hbmlmZXN0PjwvbWV0YWRhdGE+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSIyMDAiIGZpbGw9IiNjOWRlZmEiLz4KICA8cGF0aCBkPSJNNjAgMzYwYzEwLTcwIDcwLTEwMCAxNDAtMTAwczEzMCAzMCAxNDAgMTAwYTIwMCAyMDAgMCAwIDEtMjgwIDB6IiBmaWxsPSIjM2Y3OGFkIi8+CiAgPHBhdGggZD0iTTE3MCAyNTVoNjBsLTMwIDcweiIgZmlsbD0iI2ZmZiIvPgogIDxwYXRoIGQ9Ik0xOTIgMjcwaDE2bDggNjAtMTYgMTgtMTYtMTh6IiBmaWxsPSIjZDk2MjZiIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIyMTUiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NSIgcng9IjEwIiBmaWxsPSIjZjViNDlhIi8+CiAgPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjE2NSIgcng9IjU1IiByeT0iNjUiIGZpbGw9IiNmOWMzYWIiLz4KICA8cGF0aCBkPSJNMTQyIDE2MGMtOC02MCAzMC04NSA2Mi04NXM2MiAyNSA1NiA4NWMtMTAtMjgtMzAtNDAtNjAtNDBzLTQ4IDE0LTU4IDQweiIgZmlsbD0iIzJlNGE2YiIvPgo8L3N2Zz4K" alt="Profile photo of Adarsh Rai">
+      </div>
+    </section>
+
+  
+    <section id="about" class="section">
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">
+        Hello! My name is Adarsh Rai, and I am a B.Tech student at K.R. Mangalam University.
+        I know HTML, CSS and Python, and I am currently learning JavaScript to build interactive,
+        responsive web pages. This portfolio is where I showcase what I have built so far. I enjoy
+        exploring new technologies every day, and I aim to keep improving through consistent practice.
+        With a hardworking mindset, I am determined to grow as a developer and create projects that
+        make a real impact.
+      </p>
+    </section>
+
+   
+    <section id="skills" class="section">
+      <h2 class="section-title">My Skills</h2>
+      <div class="grid skills-grid">
+        <article class="card skill-card"><h3>HTML</h3><p>Intermediate</p></article>
+        <article class="card skill-card"><h3>CSS</h3><p>Intermediate</p></article>
+        <article class="card skill-card"><h3>Python</h3><p>Intermediate</p></article>
+        <article class="card skill-card"><h3>JavaScript</h3><p>Learning</p></article>
+        <article class="card skill-card"><h3>Git &amp; GitHub</h3><p>Learning</p></article>
+        <article class="card skill-card"><h3>Responsive Design</h3><p>Learning</p></article>
+      </div>
+    </section>
+
+   
+    <section id="projects" class="section">
+      <h2 class="section-title">My Projects</h2>
+      <div class="grid projects-grid">
+        <article class="card project-card">
+          <h3>Personal Portfolio</h3>
+          <p>A responsive one-page portfolio built with HTML, CSS, Flexbox, Grid and animations.</p>
+        </article>
+        <article class="card project-card">
+          <h3>Python Calculator</h3>
+          <p>A command-line calculator in Python that handles basic arithmetic with input validation.</p>
+        </article>
+        <article class="card project-card">
+          <h3>Number Guessing Game</h3>
+          <p>A Python game where the player guesses a random number, with hints and attempt tracking.</p>
+        </article>
+        <article class="card project-card">
+          <h3>Landing Page</h3>
+          <p>A simple mobile-friendly landing page with a navbar, hero section and card layout.</p>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact Me</h2>
+      <form class="contact-form" action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write your message" required></textarea>
+
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Adarsh Rai. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <a href="#top" class="btn back-to-top">&uarr; Back to Top</a>
+
+</body>
+</html>
